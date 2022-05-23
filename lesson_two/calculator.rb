@@ -15,18 +15,21 @@ def division(num1, num2)
 end
 
 def valid_number?(number)
-  number.real?
+  if number.to_f.real? && number.to_i
+    true
+  else 
+    false
+  end
 end
 
 number_one = 'nil'
 number_two = 'nil'
 
 loop do  
-  puts "Please in a number"
-  number_one = Kernel.gets().chomp().to_f()
+  puts "Type in a number"
+  number_one = Kernel.gets().chomp()
   if valid_number?(number_one) == false
-    puts "Enter a real number"
-    next
+    puts "That's not a valid number"
   else 
     break
   end  
@@ -37,7 +40,6 @@ loop do
   number_two = Kernel.gets().chomp().to_f()
   if valid_number?(number_two) == false
     puts "Enter a real number"
-    next
   elsif valid_number?(number_two) && number_two == 0
     puts "If using 0 as a seocnd number do not choose divide. Type 'redo' to choose another number or 'ok' to continue"
     user_choice = Kernel.gets().chomp().downcase()
